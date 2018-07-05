@@ -1,0 +1,100 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-ksyvideo@^2.0.0",
+        "scope": null,
+        "escapedName": "react-native-ksyvideo",
+        "name": "react-native-ksyvideo",
+        "rawSpec": "^2.0.0",
+        "spec": ">=2.0.0 <3.0.0",
+        "type": "range"
+      },
+      "/Users/nguyenlethanhhai/Topica-Native-Mobile"
+    ]
+  ],
+  "_from": "react-native-ksyvideo@>=2.0.0 <3.0.0",
+  "_id": "react-native-ksyvideo@2.0.0",
+  "_inCache": true,
+  "_location": "/react-native-ksyvideo",
+  "_nodeVersion": "9.6.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-native-ksyvideo_2.0.0_1519982548886_0.23567603856122998"
+  },
+  "_npmUser": {
+    "name": "dengchu",
+    "email": "dengchu817@163.com"
+  },
+  "_npmVersion": "5.7.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-ksyvideo@^2.0.0",
+    "scope": null,
+    "escapedName": "react-native-ksyvideo",
+    "name": "react-native-ksyvideo",
+    "rawSpec": "^2.0.0",
+    "spec": ">=2.0.0 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-ksyvideo/-/react-native-ksyvideo-2.0.0.tgz",
+  "_shasum": "985d73b03ddf588724f786635c6cb1988ed82937",
+  "_shrinkwrap": null,
+  "_spec": "react-native-ksyvideo@^2.0.0",
+  "_where": "/Users/nguyenlethanhhai/Topica-Native-Mobile",
+  "author": {
+    "name": "ksy"
+  },
+  "bugs": {
+    "url": "https://github.com/ksvc/react-native-video-player/issues"
+  },
+  "dependencies": {},
+  "description": "A `<KSYVideo>` component for react-native, as seen in",
+  "devDependencies": {},
+  "directories": {
+    "example": "example"
+  },
+  "dist": {
+    "integrity": "sha512-23/kK8/aJ97j88Y42vSXYJm3I6mnIfdH4lVGbMhJX8wBOCNAzOMu0WEBYYowYcUQiu626L11eNjUBXB3VLuFDg==",
+    "shasum": "985d73b03ddf588724f786635c6cb1988ed82937",
+    "tarball": "https://registry.npmjs.org/react-native-ksyvideo/-/react-native-ksyvideo-2.0.0.tgz",
+    "fileCount": 44,
+    "unpackedSize": 86839340
+  },
+  "gitHead": "673d634b99bb4e61b59a2568b49dc4b98a906ece",
+  "homepage": "https://github.com/ksvc/react-native-video-player#readme",
+  "keywords": [
+    "video"
+  ],
+  "license": "ISC",
+  "main": "KSYVideo.js",
+  "maintainers": [
+    {
+      "name": "dengchu",
+      "email": "dengchu817@163.com"
+    },
+    {
+      "name": "ksvc",
+      "email": "ksvcsdk@gmail.com"
+    },
+    {
+      "name": "mayudong1",
+      "email": "mayudong1@126.com"
+    }
+  ],
+  "name": "react-native-ksyvideo",
+  "optionalDependencies": {},
+  "readme": "## react-native-video-player\n<pre>Source Type:<b> Open Source</b></pre>\n\n\n> Media Player for React-Native, base on KSYMediaPlayer.\n\nMore details about KSYMediaPlayer, please click the link blow:\n\n* [KSYMediaPlayer Android SDK for vod or live streaming playing][player_android]\n* [KSYMediaPlayer iOS SDK for vod or live streaming playing][player_ios]\n\n*Android support*\n\n*iOS support*\n\n\n### 1. About\n\nA `<KSYVideo>` component for react-native,requires react-native >= 0.49.0\n\n#### 1.1 Add it to your project\n* Install via npm\n\nRun `npm install react-native-ksyvideo --save`\n\n\n### 1.2 Usage Example\n\n```javascript\n\n<KSYVideo source={{uri: \"rtmp://\"}}   // Can be a URL or a local file.\n       ref={(ref) => {\n         this.player = ref\n       }}                                      // Store reference\n  \n       volume={1.0}                            \n       muted={false}                           \n       paused={false}                          // Pauses playback entirely.\n       resizeMode=\"cover\"                      // Fill the whole screen at aspect ratio.*\n       repeat={true}                           // Repeat forever.\n       playInBackground={false}                // Audio continues to play when app entering background.\n       progressUpdateInterval={250.0}          // Interval to fire onProgress (default to ~250ms)\n       onLoadStart={this.loadStart}            // Callback when video starts to load\n       onLoad={this.setDuration}               // Callback when video loads\n       onProgress={this.setTime}               // Callback every ~250ms with currentTime\n       onEnd={this.onEnd}                      // Callback when playback finishes\n       onError={this.videoError}               // Callback when video cannot be loaded\n       onBuffer={this.onBuffer}                // Callback when remote video is buffering\n       style={styles.backgroundVideo} />\n\n\n// Later on in your styles..\nvar styles = StyleSheet.create({\n  backgroundVideo: {\n    position: 'absolute',\n    top: 0,\n    left: 0,\n    bottom: 0,\n    right: 0,\n  },\n});\n```\n\n### 2. Android Integration\n\nRun `react-native link` to link the react-native-ksyvideo library.\n\nOr if you have trouble, make the following additions to the given files manually:\n\n**android/settings.gradle**\n\n```gradle\ninclude ':react-native-ksyvideo'\nproject(':react-native-ksyvideo').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ksyvideo/android')\n```\n\n**android/app/build.gradle**\n\n```gradle\ndependencies {\n   ...\n   compile project(':react-native-ksyvideo')\n}\n```\n\n**MainApplication.java**\n\nOn top, where imports are:\n\n```java\nimport com.ksyun.media.reactnative.ReactKSYVideoPackage;\n```\n\nAdd the `ReactKSYVideoPackage` class to your list of exported packages.\n\n```java\n@Override\nprotected List<ReactPackage> getPackages() {\n    return Arrays.asList(\n            new MainReactPackage(),\n            new ReactKSYVideoPackage()\n    );\n}\n```\n\n### 3. iOS Integration\n\nRun `react-native link` to link the react-native-ksyvideo library.\n\nAdd KSYMediaPlayer.framework(which is in node_modules/react-native-ksyvideo/ios directory) to your project setting 'target->Build Phases->Link Binary With Libraries'.\n\nAdd Framework Search Path : '../node_modules/react-native-ksyvideo/ios'\n\n\n### 4. Remarks\nIf you want to updata native sdk for KSYVideo,make the following additions\n#### 4.1 Android\nThe KSYVideo is dependented on [jcenter](https://bintray.com/ksvc/ksyplayer),you can modify the dependencies ,update to high version\n\nbuild.gradle(Module:react-native-ksyvideo)\n```gradle\ndependencies {\n\n    compile \"com.facebook.react:react-native:+\"  // From node_modules\n    compile 'com.ksyun.media:libksyplayer-arm64:2.1.0'\n    compile 'com.ksyun.media:libksyplayer-x86:2.1.0'\n    compile 'com.ksyun.media:libksyplayer-armv7a:2.1.0'\n    compile 'com.ksyun.media:libksyplayer-java:2.1.0'\n}\n```\n\n\n#### 4.2 iOS\n\nGet the latest framework of KSYMeidaPlayer_iOS at https://github.com/ksvc/KSYMediaPlayer_iOS/releases, then replace the old framework in node_modules/react-native-ksyvideo/ios directory\n\n### 5. LICENSE\n[Apache 2.0](LICENSE)\n\n[player_android]:https://github.com/ksvc/KSYMediaPlayer_Android\n[player_ios]:https://github.com/ksvc/KSYMediaPlayer_iOS\n\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksvc/react-native-video-player.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.0.0"
+}
